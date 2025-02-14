@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Conversor de Velocidade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="page-container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Converter Velocidade</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <ion-input type="number" [(ngModel)]="inputValue"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>De:</ion-label>
+        <ion-select [(ngModel)]="fromUnit">
+          <ion-select-option value="kmh">km/h</ion-select-option>
+          <ion-select-option value="ms">m/s</ion-select-option>
+          <ion-select-option value="mph">milhas/h</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Para:</ion-label>
+        <ion-select [(ngModel)]="toUnit">
+          <ion-select-option value="kmh">km/h</ion-select-option>
+          <ion-select-option value="ms">m/s</ion-select-option>
+          <ion-select-option value="mph">milhas/h</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" (click)="convertSpeed()">Converter</ion-button>
+
+      <ion-card *ngIf="convertedValue !== null">
+        <ion-card-content class="result-container">
+          <strong>Resultado:</strong> {{ convertedValue }} {{ toUnit }}
+        </ion-card-content>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+</div>

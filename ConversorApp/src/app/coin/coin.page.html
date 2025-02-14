@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Conversor de Moedas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="page-container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Converter Moeda</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <ion-input type="number" [(ngModel)]="inputValue"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>De:</ion-label>
+        <ion-select [(ngModel)]="fromCurrency">
+          <ion-select-option value="USD">Dólar (USD)</ion-select-option>
+          <ion-select-option value="EUR">Euro (EUR)</ion-select-option>
+          <ion-select-option value="GBP">Libra (GBP)</ion-select-option>
+          <ion-select-option value="BRL">Real (BRL)</ion-select-option>
+          <ion-select-option value="JPY">Iene (JPY)</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Para:</ion-label>
+        <ion-select [(ngModel)]="toCurrency">
+          <ion-select-option value="USD">Dólar (USD)</ion-select-option>
+          <ion-select-option value="EUR">Euro (EUR)</ion-select-option>
+          <ion-select-option value="GBP">Libra (GBP)</ion-select-option>
+          <ion-select-option value="BRL">Real (BRL)</ion-select-option>
+          <ion-select-option value="JPY">Iene (JPY)</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" (click)="convertCurrency()">Converter</ion-button>
+
+      <ion-card *ngIf="convertedValue !== null">
+        <ion-card-content class="result-container">
+          <strong>Resultado:</strong> {{ currencySymbol }} {{ convertedValue }}
+        </ion-card-content>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+</div>
